@@ -1,5 +1,6 @@
 import Banner from "../../components/Banner/Banner";
 import PopularCat from "./PopularCat";
+import Services from "./Services";
 
 
 
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
       <Banner />
       <PopularCat />
+      <Services />
     </div>
   );
 };
