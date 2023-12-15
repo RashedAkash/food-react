@@ -1,5 +1,6 @@
 import React from 'react';
 import CatCard from './CatCard';
+import Title from '../../shared/Title';
 
 const PopularCat = () => {
   const popularCats = [
@@ -27,6 +28,9 @@ const PopularCat = () => {
 
   return (
     <div>
+      <div className='text-center py-16'>
+        <Title subTitle='Customer favorites' title='Popular Category' />
+      </div>
        <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7'>
       {
         popularCats?.map(cat=> <CatCard key={cat.cat} cat={cat} />)
