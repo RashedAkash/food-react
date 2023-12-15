@@ -1,9 +1,9 @@
 import React from 'react';
-import img from '../../assets/food menu instagram post .png'
+import img from '../../../public/images/recipes/ban.jpg'
 
 const Banner = () => {
   return (
-    <div>
+    <div className=' py-16'>
       <header className="bg-gradient-to-r from-[#fafafa] to-[#fcfcfc]">
    
 

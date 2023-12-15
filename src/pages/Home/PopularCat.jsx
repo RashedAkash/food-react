@@ -28,7 +28,7 @@ const PopularCat = () => {
 
   return (
     <div>
-      <div className='text-center py-16'>
+      <div className='text-center pb-16'>
         <Title subTitle='Customer favorites' title='Popular Category' />
       </div>
        <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7'>
