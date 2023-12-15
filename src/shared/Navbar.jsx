@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+    if (offset > 0) {
+      setSticky(true)
+    } else {
+      setSticky(false)
+      }
+      
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.addEventListener('scroll', handleScroll)
+    }
+  },[])
   return (
-    <div>
-      <div className="navbar bg-base-100">
-  <div className="navbar-start">
+    <div className=' max-w-screen-lg bg-base-100 container mx-auto fixed top-0 left-0 right-0 z-10'>
+      <div className={`navbar ${sticky ? 'shadow-xl transition-all bg-base-100 duration-300 ease-in-out':''}`}>
+  <div className='navbar-start'>
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
