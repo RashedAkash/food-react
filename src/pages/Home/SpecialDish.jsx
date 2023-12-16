@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Title from '../../shared/Title';
 import SpecialDishesCard from './SpecialDishesCard';
+import PrevArrow from '../../components/PrevArrow';
+import NextArrow from '../../components/NextArrow';
 
 const SpecialDish = () => {
   const [popular, setPopular] = useState([]);
@@ -16,12 +18,15 @@ const SpecialDish = () => {
       })
   }, [setPopular]);
   var settings = {
-      dots: true,
+      dots: false,
       infinite: false,
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
-      initialSlide: 0,
+    initialSlide: 0,
+    arrows: true,
+      prevArrow:<PrevArrow />,
+      nextArrow:<NextArrow />,
       responsive: [
         {
           breakpoint: 1024,
@@ -51,8 +56,10 @@ const SpecialDish = () => {
     };
 
   return (
-    <div>
-      <Title title='Standout Dishes From Our Menu' subTitle='Popular menu' />
+    <div className='py-16'>
+      <div className='mb-16'>
+        <Title title='Standout Dishes From Our Menu' subTitle='Popular menu' />
+      </div>
         <Slider {...settings}>
           
           {
