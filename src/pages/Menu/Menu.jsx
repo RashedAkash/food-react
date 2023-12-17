@@ -32,19 +32,15 @@ const Menu = () => {
   return (
     <div className='py-16'>
       <div>
+        <div>
+          
+        </div>
         
-       <div role="tablist" className="tabs tabs-bordered">
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="All" checked />
-          <div role="tabpanel" className="tab-content p-10">
-            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-               {
-        menu?.map(itm=> <MenuCard key={itm.id} itm={itm} />)
-      }
-            </div>
-          </div>
+       <div role="tablist" className="tabs tabs-bordered ">
+  
           
 
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="pizza" />
+  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="pizza" checked  />
           <div role="tabpanel" className="tab-content p-10">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
@@ -55,7 +51,7 @@ const Menu = () => {
           
 
 
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Salad"  />
+  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Salad"  checked  />
           <div role="tabpanel" className="tab-content p-10">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
@@ -64,7 +60,7 @@ const Menu = () => {
             </div>
           </div>
 
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="soup" />
+  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="soup" checked  />
           <div role="tabpanel" className="tab-content p-10">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
@@ -72,7 +68,7 @@ const Menu = () => {
       }
             </div>
           </div>
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="drinks" />
+  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="drinks" checked  />
           <div role="tabpanel" className="tab-content p-10">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
@@ -80,15 +76,25 @@ const Menu = () => {
       }
             </div>
           </div>
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="dessert" />
+  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="dessert" checked  />
           <div role="tabpanel" className="tab-content p-10">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
         dessert?.map(itm=> <MenuCard key={itm.id} itm={itm} />)
       }
             </div>
+            
           </div>
-</div>
+          <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="All" checked   />
+          <div role="tabpanel" className="tab-content p-10">
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+               {
+        menu?.map(itm=> <MenuCard key={itm.id} itm={itm} />)
+      }
+            </div>
+          </div>
+        </div>
+        
       </div>
      
     </div>
