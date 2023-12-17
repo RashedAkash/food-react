@@ -5,4 +5,11 @@
 margin: 0 10px;
 }
 
-
+.react-tabs__tab-list {
+    /* border-bottom: 1px solid #aaa; */
+    margin: 0 0 10px;
+    padding: 0;
+}
+.react-tabs__tab--selected{
+ border-color: white;
+}

@@ -12,7 +12,7 @@ const Testimonial = () => {
       <header className="bg-white ">
     
 
-    <div className="container px-6 py-16 mx-auto">
+    <div className="container px-6 py-10 mx-auto">
         <div className="items-center lg:flex lg:flex-row-reverse gap-7">
             <div className="w-full lg:w-1/2">
                 <div className="lg:max-w-lg">

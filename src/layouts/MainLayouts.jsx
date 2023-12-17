@@ -7,7 +7,9 @@ const MainLayouts = () => {
   return (
     <div className=" max-w-5xl mx-auto">
       <Navbar />
-      <Outlet />
+      <div className=" min-h-screen">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
