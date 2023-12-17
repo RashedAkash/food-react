@@ -8,7 +8,7 @@ const Menu = () => {
   const [menu, setMenu] = useState([]);
   const [selectCat, setselectCat] = useState('all');
 
-  const [sort, setSort] = useState();
+  const [sort, setSort] = useState('default');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,14 +27,50 @@ const Menu = () => {
   const soup = menu?.filter(item => item.category === 'soup')
   const dessert = menu?.filter(item => item.category === 'dessert')
   const drinks = menu?.filter(item => item.category === 'drinks')
+
+  const handleSortData = (option) => {
+    setSort(option);
+    let sortedData = [...menu];
+    switch (option) {
+      case "A-Z":
+        sortedData.sort((a,b)=> a.name.localeCompare(b.name))
+        break;
+      case "Z-A":
+        sortedData.sort((a,b)=> b.name.localeCompare(a.name))
+        break;
+      case "High-Low":
+        sortedData.sort((a,b)=> b.price-a.price )
+        break;
+      case "Low-High":
+        sortedData.sort((a,b)=>a.price-b.price )
+        break;
+    
+      default:
+        break;
+    }
+     setMenu(sortedData);
+
+  }
   
   
   return (
-    <div className='py-16'>
+    <div className='py-24'>
       <div>
         <div>
           
         </div>
+        <div className=' text-right'>
+          <select
+            value={sort}
+            onChange={(e) => handleSortData(e.target.value)}
+            className="select select-info w-full max-w-xs">
+  <option value="default" >Default</option>
+  <option value="A-Z">A-Z</option>
+  <option value="Z-A">Z-A</option>
+  <option value="High-Low">High-Low</option>
+  <option value="Low-High">Low-High</option>
+</select>
+      </div>
         
        <div role="tablist" className="tabs tabs-bordered ">
   
@@ -76,8 +112,8 @@ const Menu = () => {
       }
             </div>
           </div>
-  <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="dessert" checked  />
-          <div role="tabpanel" className="tab-content p-10">
+  <input type="radio" name="my_tabs_1" role="tab" className="tab " aria-label="dessert" checked  />
+          <div role="tabpanel" className="tab-content p-10 ">
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                {
         dessert?.map(itm=> <MenuCard key={itm.id} itm={itm} />)
@@ -94,6 +130,7 @@ const Menu = () => {
             </div>
           </div>
         </div>
+        
         
       </div>
      
