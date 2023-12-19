@@ -2,10 +2,39 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FireBaseContext } from '../context/AuthContext';
 import Modal from '../components/Modal';
+import { useForm } from "react-hook-form"
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
-  const { user } = useContext(FireBaseContext);
+  const { user,SignIn,logOut } = useContext(FireBaseContext);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  // email password
+  const onSubmit = (data) => {
+		console.log(data)
+		SignIn(data.email, data.password)
+			.then(res => {
+			console.log(res);
+			})
+			.catch(err => {
+			console.log(err.message);
+		})
+  };
+  
+  //logout
+   const handlelogOut = () => {
+    logOut()
+    .then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  console.log(error);
+});
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,19 +77,23 @@ const Navbar = () => {
   </div>
         <div className="navbar-end">
           {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Login</button>
+          
+             <button className="btn btn-success text-white" onClick={()=>document.getElementById('my_modal_2').showModal()}>Login</button>
+
 <dialog id="my_modal_2" className="modal">
   <div className="modal-box">
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl  dark:text-gray-800">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
-	<form  action="" className="space-y-6">
+	<form onSubmit={handleSubmit(onSubmit)}  action="" className="space-y-6">
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-800">Email</label>
-			<input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md  dark:text-gray-500 border border-[#0fa968]" />
+                    <input {...register("email", { required: true })} type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md  dark:text-gray-500 border border-[#0fa968]" />
+                    {errors.password && <span className=" text-red-700">This field is required</span>}
 		</div>
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Password</label>
-			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md   dark:text-gray-100 border border-[#0fa968]" />
+                    <input {...register("password", { required: true })} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md   dark:text-gray-800 border border-[#0fa968]" />
+                    {errors.password && <span className=" text-red-700">This field is required</span>}
 			<div className="flex justify-end text-xs dark:text-gray-400">
 				<a rel="noopener noreferrer" href="#">Forgot Password?</a>
 			</div>

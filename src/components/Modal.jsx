@@ -20,6 +20,8 @@ const Modal = () => {
 			console.log(err.message);
 		})
 	};
+
+	//google
 	const handleGoogleSignIn = () => {
 		googleSignIn()
 		.then((result) => {
