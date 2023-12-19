@@ -4,7 +4,7 @@ const SignUp = () => {
   return (
     <div>
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl  dark:text-gray-800">
-	<h1 className="text-2xl font-bold text-center">Login</h1>
+	<h1 className="text-2xl font-bold text-center">Sign up</h1>
 	<form  action="" className="space-y-6">
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-800">Email</label>
@@ -42,7 +42,7 @@ const SignUp = () => {
 		</button>
 	</div>
 	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
-		<a rel="noopener noreferrer" href="#" className="underline  text-[#0fa968]">Sign up</a>
+		<a  onClick={() => document.getElementById("my_modal_2").showModal()} rel="noopener noreferrer" href="#" className="underline  text-[#0fa968]">Log in</a>
 	</p>
 </div>
     </div>
