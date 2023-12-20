@@ -5,7 +5,7 @@ import {auth} from '../Firebase/Firebase.config'
 export const FireBaseContext = createContext('null')
 
 const AuthContext = ({children}) => {
-  const [user, setUser] = useState("joy");
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false)
   
 
@@ -35,7 +35,8 @@ const AuthContext = ({children}) => {
 
   // manage user
   useEffect(() => {
-  const unSubscribe =  onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+    setUser(user);
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
