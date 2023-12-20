@@ -36,20 +36,17 @@ const AuthContext = ({children}) => {
   // manage user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
-    setUser(user);
+      setUser(user);
+      
   if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/auth.user
-   
-    // ...
+    setLoading(false);
   } else {
-    // User is signed out
-    // ...
+     setLoading(false);
   }
   });
-    setLoading(false);
+   
     return () => {
-      return unSubscribe;
+      return unSubscribe();
     }
   },[])
 
