@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router";
 
 import { useContext } from "react";
 import { FireBaseContext } from "../context/AuthContext";
+import Loading from "../components/Loading";
 
 
 
@@ -10,7 +11,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if(loading){
-        return <progress className="progress w-56"></progress>
+        return <Loading />
     }
 
     if (user) {
